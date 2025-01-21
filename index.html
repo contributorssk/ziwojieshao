@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <!-- 设置视口，确保在移动设备上正常显示 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contribute的个人主页</title>
+    <!-- 引入样式表 -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
+    <!-- 引入谷歌字体 Noto Sans SC -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- 引入 Font Awesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- 预加载关键资源 -->
+    <link rel="preload" href="./tupian/your-image.jpg" as="image">
+    <link rel="preload" href="./music/等你下课.mp3" as="audio">
+    
+    <!-- 添加网站图标 -->
+    <link rel="icon" href="./tupian/favicon.ico" type="image/x-icon">
+    
+    <!-- 添加 SEO 相关标签 -->
+    <meta name="description" content="Contribute的个人主页 - 独立开发者、谷歌开发者">
+    <meta name="keywords" content="Contribute, 开发者, Google DevFest, 物体检测">
+    <meta name="author" content="Contribute">
+</head>
+<body class="light-mode">
+    <!-- 加载动画 -->
+    <div class="loading-screen">
+        <div class="door-left">
+            <div class="door-content">
+                <div class="profile-image">
+                    <img src="./tupian/toxiang.jpg" alt="Contribute's Profile">
+                </div>
+            </div>
+        </div>
+        <div class="door-right">
+            <div class="door-content">
+                <div class="loader-text">
+                    <span>C</span>
+                    <span>O</span>
+                    <span>N</span>
+                    <span>T</span>
+                    <span>R</span>
+                    <span>I</span>
+                    <span>B</span>
+                    <span>U</span>
+                    <span>T</span>
+                    <span>E</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 添加滚动进度指示器 -->
+    <div class="scroll-indicator"></div>
+    <!-- 在body开始处添加鼠标指针元素 -->
+    <div class="cursor-outer"></div>
+    <div class="cursor-inner"></div>
+
+    <div class="content-wrapper">
+        <!-- 导航栏 -->
+        <nav>
+            <div class="nav-brand">Contribute</div>
+            <div class="nav-content">
+                <div class="nav-links">
+                    <a href="#home">首页</a>
+                    <a href="#about">关于作者</a>
+                    <a href="#changelog">更新日志</a>
+                    <a href="#achievements">我的成就</a>
+                    <a href="#contact">联系方式</a>
+                    <a href="#games">小游戏</a>
+                </div>
+                <div class="nav-buttons">
+                    <!-- 音乐控制按钮 -->
+                    <button id="music-toggle" aria-label="播放音乐">
+                        <i class="fas fa-music" aria-hidden="true"></i>
+                    </button>
+                    <!-- 雪花效果开关按钮 -->
+                    <button id="snow-toggle" onclick="toggleSnow()">
+                        <i class="fas fa-snowflake"></i>
+                    </button>
+                    <!-- 深色模式切换按钮 -->
+                    <button id="theme-toggle">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="菜单">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+
+        <!-- 主页区域 -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>欢迎来到Contribute的个人主页</h1>
+                <p>这是contribute的个人主页</p>
+                <!-- 北京时间显示区域 -->
+                <div id="beijing-time" class="time-display">
+                    <i class="far fa-clock"></i>
+                    <span></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 关于作者区域 -->
+        <section id="about" class="about">
+            <div class="about-content">
+                <h2>关于我</h2>
+                <!-- 添加个性标签区域 -->
+                <div class="personal-tags">
+                    <span class="tag">00后</span>
+                    <span class="tag">独立开发者</span>
+                    <span class="tag">谷歌开发者</span>
+                </div>
+                <div class="about-text">
+                    <p>我是contribute</p>
+                    <!-- 个人特点列表 -->
+                    <ul>
+                        <li>一名数码爱好者</li>
+                        <li>白日梦想家</li>
+                        <li>thenight赞助商</li>
+                    </ul>
+                    <!-- 技能列表 -->
+                    <p>我热爱计算机相关的一切：</p>
+                    <ul>
+                        <li>前端开发</li>
+                        <li>树莓派编程</li>
+                        <li>python爬虫</li>
+                        <li>pygame游戏建模</li>
+                    </ul>
+                    <!-- 兴趣爱好 -->
+                    <p>最喜欢的哔哩哔哩的主播：</p>
+                    <ul>
+                        <li>影视飓风</li>
+                        <li>老师好我叫何同学</li>
+                        <li>极客湾Geekerwan</li>
+                    </ul>
+                    <!-- 个性签名 -->
+                    <p class="quote">"带着相机和好心情与世界的人环游世界"</p>
+                    <p class="ending">请多指教！</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 更新日志区域 -->
+        <section id="changelog" class="changelog">
+            <div class="changelog-content">
+                <h2>小站大事记</h2>
+                <!-- 添加展开/收起按钮 -->
+                <button class="toggle-changelog">
+                    <span class="toggle-text">展开完整记录</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="timeline collapsed">
+                    <!-- 第一个时间线项目（最新的）保持不变 -->
+                    <div class="timeline-item visible">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2025年1月21日</div>
+                        <div class="timeline-content">
+                            <h3>网站 1.1 版本更新 🚀</h3>
+                            <p>- 优化页面布局和样式</p>
+                            <p>- 改进深色模式显示效果</p>
+                            <p>- 增加页面过渡动画</p>
+                            <p>- 优化移动端适配</p>
+                        </div>
+                    </div>
+                    <!-- 其他时间线项目添加 hidden 类 -->
+                    <div class="timeline-item hidden">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2024年12月30日</div>
+                        <div class="timeline-content">
+                            <h3>功能优化更新 ⚡</h3>
+                            <p>- 添加音乐播放功能</p>
+                            <p>- 增加雪花特效开关</p>
+                            <p>- 优化页面加载速度</p>
+                            <p>- 改进响应式布局</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item hidden">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2024年12月26日</div>
+                        <div class="timeline-content">
+                            <h3>网站 1.0 版本上线 🎉</h3>
+                            <p>- 完成基础页面设计</p>
+                            <p>- 添加深色模式切换</p>
+                            <p>- 实现雪花特效功能</p>
+                            <p>- 添加北京时间显示</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item hidden">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2024年12月25日</div>
+                        <div class="timeline-content">
+                            <h3>网站创建 🎯</h3>
+                            <p>- 注册网站域名</p>
+                            <p>- 开始网站开发规划</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 成就区域 -->
+        <section id="achievements" class="achievements">
+            <div class="achievements-content">
+                <h2>我的成就</h2>
+                <div class="achievement-grid">
+                    <div class="achievement-card">
+                        <a href="https://gdg.community.dev/gdg-shanghai/" target="_blank" rel="noopener noreferrer">
+                            <img src="./tupian/google.jpg" alt="Google DevFest" class="achievement-img">
+                            <div class="achievement-info">
+                                <h3>2024 Google Shanghai DevFest 成员</h3>
+                                <p>参与 Google 开发者技术社区活动</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="achievement-card">
+                        <a href="https://verdant-sprinkles-2a03b6.netlify.app/" target="_blank" rel="noopener noreferrer">
+                            <img src="./tupian/wuti.jpg" alt="实时物体检测" class="achievement-img">
+                            <div class="achievement-info">
+                                <h3>实时物体检测开发工程师</h3>
+                                <p>开发实时物体检测系统</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 联系方式区域 -->
+        <section id="contact" class="contact">
+            <div class="contact-content">
+                <h2>联系方式</h2>
+                <div class="contact-grid">
+                    <!-- 电子邮件 -->
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-label">电子邮件</div>
+                        <div class="contact-value">
+                            <p>1516603851@qq.com</p>
+                            <p>nbbb5463@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Telegram -->
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-telegram"></i>
+                        </div>
+                        <div class="contact-label">Telegram</div>
+                        <div class="contact-value">
+                            <a href="https://t.me/ldkeksndj" target="_blank" rel="noopener noreferrer">@ldkeksndj</a>
+                        </div>
+                    </div>
+                    
+                    <!-- X (Twitter) -->
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </div>
+                        <div class="contact-label">X (Twitter)</div>
+                        <div class="contact-value">
+                            <a href="https://x.com/?mx=2" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-brands fa-x-twitter"></i>
+                                <span>@6LYA57y0LFHm6Ss</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 游戏区域 -->
+        <section id="games" class="games-section">
+            <div class="games-container">
+                <h2>小游戏专区</h2>
+                <div class="game-selection">
+                    <div class="game-option" id="game2048-option">
+                        <h3>2048</h3>
+                        <p>经典数字益智游戏</p>
+                        <button class="play-button" onclick="show2048Game()">开始游戏</button>
+                    </div>
+                    <div class="game-option" id="snake-option">
+                        <h3>贪吃蛇</h3>
+                        <p>经典贪吃蛇游戏</p>
+                        <button class="play-button" onclick="showSnakeGame()">开始游戏</button>
+                    </div>
+                </div>
+
+                <!-- 2048游戏界面 -->
+                <div class="game-2048" id="game2048-container" style="display: none;">
+                    <div class="game-container">
+                        <div class="game-header">
+                            <h2>2048 游戏</h2>
+                            <div class="game-controls">
+                                <div class="score-container">
+                                    分数: <span id="game-score">0</span>
+                                </div>
+                                <button class="back-button" onclick="hideGame()">返回</button>
+                            </div>
+                        </div>
+                        <div id="grid-container" class="grid-container"></div>
+                    </div>
+                </div>
+
+                <!-- 添加贪吃蛇游戏界面 -->
+                <div class="snake-game" id="snake-container" style="display: none;">
+                    <div class="game-container">
+                        <div class="game-header">
+                            <h2>贪吃蛇</h2>
+                            <div class="game-controls">
+                                <div class="score-container">
+                                    分数: <span id="snake-score">0</span>
+                                </div>
+                                <button class="back-button" onclick="hideSnakeGame()">返回</button>
+                            </div>
+                        </div>
+                        <div id="snake-grid" class="grid-container">
+                            <!-- 游戏画布将由 JavaScript 动态生成 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 音频元素 -->
+        <audio id="background-music" preload="auto" loop>
+            <source src="./music/等你下课.mp3" type="audio/mpeg">
+            <source src="./music/等你下课.mp3" type="audio/mp3">
+            您的浏览器不支持音频元素。
+        </audio>
+
+        <section class="copyright-notice">
+            <div class="copyright-content">
+                <h2>版权声明</h2>
+                <p>长期以来，我的个人网站频繁遭到某些人抄袭、盗取、照搬代码。</p>
+                <p>盗版者仅仅将源代码中所有的我的名字替换为他的名字、将与我有关的信息改成与他有关的信息，随即宣称这是"他的个人网站"，界面"由他原创设计"。</p>
+                <p>鉴于此类侵权行为频繁发生，且侵权者愈发猖狂，我在此声明：</p>
+                <p><strong>本站(指 contribute.com，下同)为本人的个人网站，由本人原创设计。</strong></p>
+                <p>本站的所有主要源代码，包括但不限于：</p>
+                <p>- 页面结构(HTML代码)<br>
+                   - 外观样式(CSS 代码)<br>
+                   - 动效和交互(JavaScript 代码)</p>
+                <p>本网站源代码将自动开源至github。</p>
+                <p>本站内容，包括但不限于个人简介、作品简介，均由本人原创撰写，contribute拥有本站代码的著作权，本站代码受《中华人民共和国著作权法》保护。</p>
+                <p><strong>任何抄袭、盗取、照搬本站代码、修改或删除本站代码中的版权信息和本人姓名的行为，均涉嫌侵权违法，必将受到本人追究。必要时，本人会对侵权者提起民事诉讼。</strong></p>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="copyright">
+                <p>Copyright © 2023 - 2025 &nbsp;&nbsp;|&nbsp;&nbsp; Made by contribute</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- 引入JavaScript文件 -->
+    <script src="script.js"></script>
+    <script src="snow.js"></script>
+    <script src="2048.js"></script>
+    <script src="snake.js"></script>
+</body>
+</html>
